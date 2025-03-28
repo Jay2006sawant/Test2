@@ -30,25 +30,20 @@
 //     }
 // }
 pipeline {
-agent any
-tools {
-    maven 'maven'
-}
-stages{
-    stage('Git Checkout'){
-        steps{
-            git branch : 'main' , url:"https://github.com/Jay2006sawant/Test2"
+    agent any
+    tools{
+        maven : 'maven'
+    }
+    stages{
+        stage('Build'){
+            steps{
+                bat 'mvn clean package'
+            }
+        }
+        stage('Test'){
+            steps{
+                bat 'mvn test'
+            }
         }
     }
-    stage ('Build'){
-        steps{
-          echo "Build Completed" 
-        }
-    }
-    stage('Test'){
-        steps{
-            echo " Test Completed"
-        }
-    }
-}
 }
