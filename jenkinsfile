@@ -37,7 +37,7 @@ tools {
 stages{
     stage('Git Checkout'){
         steps{
-            git branch : 'main' , url : "https://github.com/Jay2006sawant/Test2"
+            git branch : 'main' , url:"https://github.com/Jay2006sawant/Test2"
         }
     }
     stage ('Build'){
