@@ -73,7 +73,7 @@ git branch : 'master' , url:'https://github.com/Jay2006sawant/Test2'
         }
          stage('Linting') {
             steps {
-                bat 'eslint src/ --fix'  // Fixes styling issues automatically
+                bat  'npx eslint src/ --fix' // Fixes styling issues automatically
             }
         }
                 stage('Build'){
