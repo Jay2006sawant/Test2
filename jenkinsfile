@@ -71,9 +71,10 @@ pipeline{
 git branch : 'master' , url:'https://github.com/Jay2006sawant/Test2'
             }
         }
-         stage('Linting') {
+          stage('Code Formatting Check') {
             steps {
-                bat  'npx eslint src/ --fix' // Fixes styling issues automatically
+                echo 'Checking Code Formatting...'
+                bat 'mvn formatter:validate'  // Ensures correct code formatting
             }
         }
                 stage('Build'){
