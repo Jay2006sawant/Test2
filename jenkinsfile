@@ -1,17 +1,24 @@
 pipeline {
     agent any
-    tools {
-        maven 'maven'  // Use the exact name you set in Global Tool Configuration
-    }
+tools{
+    maven 'maven'
+}
     stages {
-        stage('Build') {
+        stage('Git Checkout') {
             steps {
-                sh 'mvn clean package'
+                git branch: 'main' , url : 'https://github.com/rohansaini-02/PractiseDebOps' 
+                echo 'Git Checkout'
             }
         }
-        stage('Test') {
+        stage('Build'){
+            steps{
+               sh 'mvn clean package'
+            }
+        }
+        
+         stage('Test') {
             steps {
-                sh 'mvn test'
+                 sh 'mvn test'
             }
         }
     }
